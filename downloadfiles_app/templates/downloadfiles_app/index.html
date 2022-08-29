@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            Excel file upload and processing : Django Example : ThePythonDjango.Com
+        </title>
+    </head>
+        <body>
+            <b1>Загрузите xls файл с заполненным шаблоном АП, чтобы разбить на периоды</b1>
+            <br>
+            <i>(Обязательно наличие полей: "Начало периода", "Конец периода", "Фото", "ТТ")</i>
+            <p></p>
+        </body>
+    <body style="margin-top: 30px;margin-left: 30px;">
+        <form action="{% url 'downloadfiles_app:index' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file"
+                   title="Upload excel file"
+                   name="excel_file"
+                   style="border: 1px solid black; padding: 5px;"
+                   required="required">
+            <p>
+            <input type="submit"
+                   value="Обработать"
+                   style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">
+        </form>
+    </body>
+</html>
